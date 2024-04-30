@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Timetable for a Week</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+  }
+  #result {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>Food Timetable for a Week</h2>
+    <label for="monday">Monday:</label>
+    <input type="text" id="monday">
+    <label for="tuesday">Tuesday:</label>
+    <input type="text" id="tuesday">
+    <label for="wednesday">Wednesday:</label>
+    <input type="text" id="wednesday">
+    <label for="thursday">Thursday:</label>
+    <input type="text" id="thursday">
+    <label for="friday">Friday:</label>
+    <input type="text" id="friday">
+    <label for="saturday">Saturday:</label>
+    <input type="text" id="saturday">
+    <label for="sunday">Sunday:</label>
+    <input type="text" id="sunday">
+    <button id="checkTimetableBtn">Show Timetable</button>
+    <div id="result"></div>
+    <a href="form1.html">YOUR PROFILE</a>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#checkTimetableBtn").click(function() {
+      var monday = $("#monday").val();
+      var tuesday = $("#tuesday").val();
+      var wednesday = $("#wednesday").val();
+      var thursday = $("#thursday").val();
+      var friday = $("#friday").val();
+      var saturday = $("#saturday").val();
+      var sunday = $("#sunday").val();
+
+      var foodTimetable = [
+        monday, tuesday, wednesday, thursday, friday, saturday, sunday
+      ];
+
+      $("#result").html("<h3>Food Timetable for a Week</h3>");
+      for (var i = 0; i < foodTimetable.length; i++) {
+        $("#result").append("<p><strong>" + getDayOfWeek(i) + ":</strong> " + foodTimetable[i] + "</p>");
+      }
+    });
+
+    function getDayOfWeek(index) {
+      var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+      return daysOfWeek[index];
+    }
+  });
+</script>
+</body>
+</html>
